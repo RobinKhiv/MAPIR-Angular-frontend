@@ -9,10 +9,14 @@ import { Task } from 'src/app/shared/task.model';
 })
 export class TasksComponent implements OnInit {
   tasks;
+  isFetching = false;
   constructor(private taskService: TaskService) { }
   
   ngOnInit() {
-    this.taskService.fetchTasks().subscribe(task => this.tasks= task);
+    this.isFetching = true;
+    this.taskService.fetchTasks().subscribe(task => {
+      this.isFetching = false;
+      this.tasks= task});
   }
   addTask(event){
     const newtask = {id: event.id, title: event.title, isDone: event.isDone}
