@@ -8,29 +8,30 @@ import { map, takeLast} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class TaskService {
+  url: string = 'https://mighty-reaches-87853.herokuapp.com/api/task';
   constructor(private http: HttpClient) { }
   
   fetchTasks(){
-    return this.http.get('http://localhost:8000/api/task');
+    return this.http.get(this.url);
   }
   postTask(title: string){
     const postData = {title}
     return this.http.post<Task>(
-      'http://localhost:8000/api/task',
+      this.url,
       postData
     );
    
   }
   updateTask(id: string, title: string, isDone: boolean){
     const postData = {id: id, title:title, isDone: isDone}
-    const updateUrl = `http://localhost:8000/api/task/${id}`
+    const updateUrl = `${this.url}/${id}`
     this.http.patch(updateUrl,
     postData
   )
   .subscribe();
   }
   deleteTask(id: string){
-    const deleteUrl = `http://localhost:8000/api/task/${id}`
+    const deleteUrl = `${this.url}/${id}`
     return this.http.delete(deleteUrl);
   }
 }
