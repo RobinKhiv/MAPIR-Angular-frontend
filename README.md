@@ -12,7 +12,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Back-end Server
 
-The backend server file is: `https://github.com/RobinKhiv/MAPIR-node-express-mongo-backend`
+The backend server file is: [Backend Server Github](https://github.com/RobinKhiv/MAPIR-node-express-mongo-backend)
 
 You do not need to install the backend to run the file. It is already hosted on Heroku
 
