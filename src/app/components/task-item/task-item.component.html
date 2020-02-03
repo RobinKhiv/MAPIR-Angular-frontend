@@ -1,0 +1,7 @@
+<li class="task-item">
+    <input type="checkbox" name="taskItem" (change)="onCheckboxChange()" [checked]="task.isDone === true"> 
+    <label for="=taskItem" >{{task.title}}</label>
+    <div class="delete-button-container">
+        <button type="button" (click)="onDelete()"name="delete">Delete</button>
+    </div>
+</li>

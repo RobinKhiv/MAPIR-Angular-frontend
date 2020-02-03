@@ -1,0 +1,7 @@
+input[name="task"]{
+    display: flex;
+    width: 100%;  
+}
+form{
+    background-color:#F2F2F2;
+}
