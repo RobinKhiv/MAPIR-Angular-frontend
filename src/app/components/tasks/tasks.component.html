@@ -1,6 +1,6 @@
 <section>
-    <app-task-form (addEvent)="update($event)"></app-task-form>
+    <app-task-form (addEvent)="addTask($event)"></app-task-form>
     <ul class="col-12">
-        <app-task-item *ngFor="let task of tasks" [task]="task" (deleteEvent)="update()"></app-task-item>
+        <app-task-item *ngFor="let task of tasks" [task]="task" (deleteEvent)="deleteTask($event)"></app-task-item>
     </ul>
 </section>

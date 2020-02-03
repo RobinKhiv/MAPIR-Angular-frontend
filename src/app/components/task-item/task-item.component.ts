@@ -21,6 +21,6 @@ export class TaskItemComponent implements OnInit {
   }
   
   onDelete(){
-    this.taskService.deleteTask(this.task.id).subscribe(() => this.deleteEvent.emit(this.task.id));
+    this.taskService.deleteTask(this.task.id).subscribe(() => this.deleteEvent.emit({id: this.task.id}));
   }
 }

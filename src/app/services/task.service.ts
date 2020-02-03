@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Task } from '../shared/task.model';
-import { map} from 'rxjs/operators';
+import { map, takeLast} from 'rxjs/operators';
 
 
 @Injectable({
@@ -15,11 +15,11 @@ export class TaskService {
   }
   postTask(title: string){
     const postData = {title}
-    this.http.post<{title: string}>(
+    return this.http.post<Task>(
       'http://localhost:8000/api/task',
       postData
-    )
-    .subscribe();
+    );
+   
   }
   updateTask(id: string, title: string, isDone: boolean){
     const postData = {id: id, title:title, isDone: isDone}

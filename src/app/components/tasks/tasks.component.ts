@@ -14,12 +14,12 @@ export class TasksComponent implements OnInit {
   ngOnInit() {
     this.taskService.fetchTasks().subscribe(task => this.tasks= task);
   }
-  addTask(id){
-    const copy = this.tasks;
-    copy.filter(el => el.id !== id);
-    this.tasks = copy;
+  addTask(event){
+    const newtask = {id: event.id, title: event.title, isDone: event.isDone}
+    const newCopy = [...this.tasks, newtask];
+    this.tasks = newCopy;
   }
-  update(){
-    this.taskService.fetchTasks().subscribe(task => this.tasks= task)
+  deleteTask(event){
+    this.tasks = this.tasks.filter(task => task.id !== event.id);
   }
 }

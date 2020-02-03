@@ -7,7 +7,7 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./task-form.component.css']
 })
 export class TaskFormComponent implements OnInit {
-  @Output() addTask = new EventEmitter();
+  @Output() addEvent = new EventEmitter();
   taskName='';
   constructor(private taskService: TaskService) { }
 
@@ -16,9 +16,9 @@ export class TaskFormComponent implements OnInit {
 
   keyboardFunction(event){
     if((event.keyCode == 13 || event.keyCode == 9) && this.taskName !== ""){
-      this.taskService.postTask(this.taskName);
-      this.addTask.emit({title: this.taskName});
-    }
-  }
+      this.taskService.postTask(this.taskName).subscribe(task => {
+        this.addEvent.emit({title: this.taskName, id: task.id, isDone: task.isDone});
+      });
+  }}
 
 }
