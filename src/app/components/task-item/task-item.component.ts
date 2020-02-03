@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../shared/task.model';
 import { TaskService } from 'src/app/services/task.service';
 
-
 @Component({
   selector: 'app-task-item',
   templateUrl: './task-item.component.html',

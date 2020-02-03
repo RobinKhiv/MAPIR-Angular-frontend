@@ -18,6 +18,7 @@ export class TaskFormComponent implements OnInit {
     if((event.keyCode == 13 || event.keyCode == 9) && this.taskName !== ""){
       this.taskService.postTask(this.taskName).subscribe(task => {
         this.addEvent.emit({title: this.taskName, id: task.id, isDone: task.isDone});
+        this.taskName = "";
       });
   }}
 
